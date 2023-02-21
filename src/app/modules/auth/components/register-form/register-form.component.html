@@ -1,0 +1,28 @@
+<div class="login-form">
+    <div class="d-flex d-all-center">
+        <i class="logo-icon uil uil-apps"></i>
+    </div>
+    <pre>
+        {{registerForm.value | json}}
+    </pre>
+    <div class="text-label d-flex d-all-center">
+        Crea tu cuenta
+    </div>
+    <form [formGroup]="registerForm" class="form d-flex">
+        <div class="form-input">
+            <input formControlName="name" type="text" placeholder="Introduce tu nombre">
+        </div>
+        <div class="form-input">
+            <input formControlName="email" type="email" placeholder="Introduce tu email">
+        </div>
+        <div class="form-input">
+            <input formControlName="password" type="password" placeholder="Introduce una contraseña">
+        </div>
+        <div class="form-input">
+            <input formControlName="passwordConfirm" type="password" placeholder="Vulve a introducir la contraseña">
+        </div>
+        <div class="form-input">
+            <button [disabled]="registerForm.invalid" class="btn-primary">Crear cuenta</button>
+        </div>
+    </form>
+</div>

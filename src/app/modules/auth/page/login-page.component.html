@@ -1,0 +1,20 @@
+<div class="wrapper-login-form">
+    <!-- uso del pipe relaceSpace -->
+    <!-- {{ 'hola cesar' | replaceSpace: '......'}}  -->
+    <div class="login-form">
+        <div class="text-label">Iniciar sesión</div>
+        
+        <form [formGroup]="loginForm" (submit)="sendCredentials()" class="form">
+            <div class="form-input">
+                <input formControlName="email" type="email" placeholder="Introduzca el correo eléctronico">
+            </div>
+            <div class="form-input">
+                <input formControlName="password" type="password" placeholder="Introduzca la contraseña">
+            </div>
+            <div class="form-input">
+                <!-- El boton sera desabilitado cuando tenga la propiedad invalid -->
+                <button [disabled]="loginForm.invalid" class="btn-primary">Iniciar sesión</button>
+            </div>
+        </form>
+    </div>
+</div>

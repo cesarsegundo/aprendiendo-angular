@@ -1,0 +1,44 @@
+<app-header></app-header>
+<!-- <button (click)="changeText()">Cambiar</button>
+<div *ngIf="showText">
+    Hola mundo
+</div> -->
+<!-- ngSwitch recibe una variable -->
+<div [ngSwitch]="case">
+    <div *ngSwitchCase="1">Hola soy Cesar</div>
+    <div *ngSwitchCase="2">Hola soy Uriel</div>
+    <div *ngSwitchCase="3">Hola somos Cesar y Uriel</div>
+    <!-- <div *ngSwitchDefault="">Opción por defecto</div> -->
+</div>
+<!-- Crear nuestra propia directiva -->
+<div>
+    <img appImgBroken class="image" src="https://avatars.githubusercontent.com/u/84350521?v=4" alt="">
+</div>
+<!-- directiva ngTemplate -->
+<div>
+    <ul *ngIf="results.length > 0 else tmpNotFound">
+        <li *ngFor="let result of results">
+            {{result}}
+        </li>
+    </ul>
+</div>
+<ng-template #tmpNotFound>
+    <p>No hay resultados :(</p>
+</ng-template>
+
+<!--  
+    *ngTemplateOutlet
+        sirve para indicarle que template quiere mostrar
+    context
+        indica lo que se desea mandar al template
+-->
+<ul>
+    <li *ngFor="let user of listUser">
+        <ng-container *ngTemplateOutlet="tplHello;context:{currentUser:user}">
+        </ng-container>
+    </li>
+</ul>
+
+<ng-template #tplHello let-currentUser="currentUser">
+    Holaaa {{currentUser.name}}
+</ng-template>
